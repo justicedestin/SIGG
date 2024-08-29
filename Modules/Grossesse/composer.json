@@ -1,0 +1,19 @@
+{
+    "name": "jdnk/grossesse",
+    "description": "Module pour la gestion des grossesses du systeme",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jdnk\\Grossesse\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "justicedestin",
+            "email": "37690983+justicedestin@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
