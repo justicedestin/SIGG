@@ -1,6 +1,6 @@
 <?php
+namespace Jdnk\Grossesse\Http\Controllers;
 
-namespace Modules\Grossesse\src\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
@@ -16,8 +16,8 @@ class AntecedentPariteController extends Controller{
         return response()->json([
             "success"=>true,
             "message"=>"listes des Antecedents Parite",
-            "data"=>$ $antecedentparites ,
-            "count"=>$ $antecedentparites ->count()
+            "data"=>$antecedentparites ,
+            "count"=>$antecedentparites ->count()
         ],200);
     }
 

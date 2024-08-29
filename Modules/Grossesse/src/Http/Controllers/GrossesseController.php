@@ -1,24 +1,26 @@
 <?php
-
 namespace Jdnk\Grossesse\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Jdnk\Grossesse\Models\Grossesse;
 use Illuminate\Support\Facades\Validator;
-use Jdnk\Grossesse\Models\Grossesse as ModelsGrossesse;
 
 class GrossesseController extends Controller{
     // Afficher toutes les grossesses
     public function index()
     {
-        $grossesses = ModelsGrossesse::all();
+        $grossesses = Grossesse::all();
+        // Log::channel("laravel")->info($grossesses);
         return response()->json([
             "success"=>true,
             "message"=>"listes des grossesses",
-            "data"=>$ $grossesses ,
-            "count"=>$ $grossesses ->count()
+            "data"=>$grossesses ,
+            "count"=>$grossesses ->count()
         ],200);
+
     }
 
     // Créer une nouvelle grossesse
@@ -162,11 +164,11 @@ class GrossesseController extends Controller{
             $grossesses->autres_ag = $request->autres_ag;
             $grossesses->ag_a_preciser = $request->ag_a_preciser;
             $grossesses->ag_dernier_type_de_contraception = $request->ag_dernier_type_de_contraception;
-            $grossesse->save();
+            $grossesses->save();
             return response()->json([
                 "success"=>true,
                 "message"=>"Grossesse modifiée avec succès",
-                "data"=>$grossesse
+                "data"=>$grossesses
             ],202);
         } catch (Exception $e) {
             // Log::channel("msp")->error($e->getMessage());
